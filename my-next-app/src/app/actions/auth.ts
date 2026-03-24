@@ -2,7 +2,7 @@
 import { redirect } from "next/navigation";
 import { UserType } from "../_components/_types/user";
 import { getApi } from "../lib/axiosInstance";
-import { setSession } from "../_lib/session";
+import { deleteSession, setSession } from "../_lib/session";
 
 export const loginAction = async (formdata: FormData) => {
   let email = formdata.get("email");
@@ -26,6 +26,6 @@ export const loginAction = async (formdata: FormData) => {
 };
 
 export const logoutAction = async () => {
-  await deleteCookie();
+  await deleteSession();
   redirect("/login");
 };
