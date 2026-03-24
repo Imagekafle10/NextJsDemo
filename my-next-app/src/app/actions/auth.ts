@@ -2,6 +2,7 @@
 import { redirect } from "next/navigation";
 import { UserType } from "../_components/_types/user";
 import { getApi } from "../lib/axiosInstance";
+import { setSession } from "../_lib/session";
 
 export const loginAction = async (formdata: FormData) => {
   let email = formdata.get("email");
@@ -15,6 +16,7 @@ export const loginAction = async (formdata: FormData) => {
     if (!user) throw new Error("Invalid Credentials");
 
     //set User in the Cookies
+    await setSession({ name: user.name, email: user.email, id: user.id });
   } catch (error: any) {
     console.log(error.message);
 
@@ -23,6 +25,7 @@ export const loginAction = async (formdata: FormData) => {
   redirect("/contact");
 };
 
-export const logout = async () => {
+export const logoutAction = async () => {
+  await deleteCookie();
   redirect("/login");
 };
