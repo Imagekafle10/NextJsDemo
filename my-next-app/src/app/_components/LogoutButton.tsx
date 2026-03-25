@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
 import { logoutAction } from "../actions/auth";
+import { useRouter } from "next/navigation";
 
 const LogoutButton = () => {
+  const router = useRouter();
   const handleLogout = async () => {
     try {
       await logoutAction();
       //Redirect Action
+      router.push("/login");
+      router.refresh();
     } catch (error) {
       console.log("Logout Failed:", error);
     }
