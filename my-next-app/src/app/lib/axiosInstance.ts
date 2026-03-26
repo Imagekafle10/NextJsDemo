@@ -36,8 +36,11 @@ const getApi = async ({ url, params }: { url: string; params?: any }) => {
       },
       withCredentials: true,
     });
+
     return response.data;
   } catch (error: unknown) {
+    console.log(error);
+
     throw new Error(parseApiError(error));
   }
 };
