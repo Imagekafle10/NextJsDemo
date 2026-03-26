@@ -2,8 +2,11 @@ import { ContactType } from "../_components/_types/contact";
 import { deleteApi, getApi, postApi, putApi } from "../lib/axiosInstance";
 
 export const getContacts = async (userId: string) => {
-  const response = await getApi({ url: `/contacts/userId=${userId}` });
-  return response.data;
+  const response = await getApi({
+    url: `/contacts?userId:${userId}`,
+    params: undefined, // pass query here
+  });
+  return response[0];
 };
 
 export const getContactById = async (id: string) => {
