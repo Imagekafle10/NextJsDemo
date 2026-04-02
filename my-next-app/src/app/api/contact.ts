@@ -6,7 +6,7 @@ export const getContacts = async (userId: string) => {
     url: `/contacts?userId:${userId}`,
     params: undefined, // pass query here
   });
-  return response[0];
+  return response;
 };
 
 export const getContactById = async (id: string) => {
