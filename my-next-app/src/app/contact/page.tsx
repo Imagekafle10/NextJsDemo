@@ -25,7 +25,6 @@ const ContactPage = async () => {
   }
 
   const contacts = await getContacts(user?.id);
-  console.log(contacts);
 
   if (!contacts || contacts.length === 0) {
     return (
