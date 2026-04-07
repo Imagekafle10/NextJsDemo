@@ -16,6 +16,7 @@ const ContactForm = ({ action, contact }: ContactFormProps) => {
   }, [state, router]);
   return (
     <form action={formAction}>
+      <input type="hidden" name="id" value={contact?.id} />
       <div>
         <label
           htmlFor="name"
