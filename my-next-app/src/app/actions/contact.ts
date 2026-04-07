@@ -2,6 +2,16 @@
 import { revalidatePath } from "next/cache";
 import { deleteContact } from "../api/contact";
 
+export const createContactAction = async (
+  prevState: any,
+  formData: FormData,
+) => {};
+
+export const updateContactAction = async (
+  prevState: any,
+  formData: FormData,
+) => {};
+
 export const deleteContactAction = async (
   prevState: any,
   formData: FormData,
