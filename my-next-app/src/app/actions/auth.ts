@@ -9,7 +9,7 @@ export const loginAction = async (formdata: FormData) => {
   let password = formdata.get("password");
   try {
     const response = await getApi({
-      url: `/users?email=${email}&password=${password}`,
+      url: `users?email=${email}&password=${password}`,
     });
     // console.log(response);
     const user: UserType = response?.[0];
@@ -27,5 +27,5 @@ export const loginAction = async (formdata: FormData) => {
 
 export const logoutAction = async () => {
   await deleteSession();
-  // redirect("/login");
+  redirect("/login");
 };

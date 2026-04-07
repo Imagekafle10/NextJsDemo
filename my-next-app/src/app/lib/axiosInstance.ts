@@ -62,6 +62,8 @@ const postApi = async ({
     });
     return response.data;
   } catch (error: unknown) {
+    console.log(error);
+
     throw new Error(parseApiError(error));
   }
 };
