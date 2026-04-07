@@ -11,7 +11,7 @@ export const getContacts = async (userId: string) => {
 
 export const getContactById = async (id: string) => {
   const response = await getApi({ url: `contacts/${id}` });
-  return response.data;
+  return response;
 };
 
 export const CreateContact = async (contact: ContactType) => {
