@@ -6,10 +6,8 @@ import DeleteButton from "./DeleteButton";
 import { deleteContactAction } from "../actions/contact";
 
 function ContactList({ contacts }: { contacts: ContactType[] }) {
-  console.log(typeof contacts);
-
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {contacts.map((contact) => (
         <div
           key={contact.id}

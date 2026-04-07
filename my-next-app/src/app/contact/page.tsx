@@ -25,7 +25,6 @@ const ContactPage = async () => {
   }
 
   const contacts = await getContacts(user?.id);
-  console.log(contacts);
 
   if (!contacts || contacts.length === 0) {
     return (
@@ -47,7 +46,7 @@ const ContactPage = async () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="flex justify-between">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">
