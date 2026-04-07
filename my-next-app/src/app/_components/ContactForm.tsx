@@ -1,12 +1,19 @@
 "use client";
-import React, { useActionState } from "react";
+import React, { useActionState, useEffect } from "react";
 import { ContactType } from "./_types/contact";
+import { useRouter } from "next/router";
 type ContactFormProps = {
   action: (prevState: any, formData: FormData) => Promise<any>;
   contact?: ContactType;
 };
 const ContactForm = ({ action, contact }: ContactFormProps) => {
+  const router = useRouter();
   const [state, formAction] = useActionState(action, null);
+  useEffect(() => {
+    if (state?.success) {
+      router.push("/contact");
+    }
+  }, [state, router]);
   return (
     <form action={formAction}>
       <div>
